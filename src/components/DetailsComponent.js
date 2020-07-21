@@ -29,7 +29,7 @@ const Details = (props) => {
             <Container>
               <Row>
                 <Col sm md="2">
-                  <img width="100" src={props.weatherData.current.condition.icon} alt="Card image cap" />
+                  <img width="100" src={props.weatherData.current.condition.icon} alt="condition" />
                 </Col>
                 <Col sm md="10">
                   <span className="display-4"> {props.weatherData.current.temp_c} &#176;C</span>
