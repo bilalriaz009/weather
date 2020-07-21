@@ -16,6 +16,7 @@ class Main extends Component {
       this.state={
         location:"",
         weatherData:"",
+        loading:false
       }
     }
     handleChange=event=>{
@@ -25,6 +26,7 @@ class Main extends Component {
       })
     }  
     fetchData=()=>{
+      this.setState({loading:true})
       var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
       targetdUrl="https://api.weatherapi.com/v1/current.json?key=24ec84d5842843e6918134831202107&q="+this.state.location;
       fetch(proxyUrl+targetdUrl)
@@ -32,6 +34,7 @@ class Main extends Component {
       .then(data=>{
         this.setState({
           weatherData:data,
+          loading:false
         })
       })
       
@@ -65,7 +68,7 @@ class Main extends Component {
 
           </Jumbotron>
           {(this.state.weatherData)?
-          <Details  weatherData={this.state.weatherData}/>
+          <Details  weatherData={this.state.weatherData} loading={this.state.loading}/>
           :
           null
           }
