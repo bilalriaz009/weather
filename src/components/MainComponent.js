@@ -25,7 +25,9 @@ class Main extends Component {
       })
     }  
     fetchData=()=>{
-      fetch("http://api.weatherapi.com/v1/current.json?key=0990fb27c72e4ff599e64650202107&q="+this.state.location)
+      var proxyUrl = 'https://cors-anywhere.herokuapp.com/',
+      targetdUrl="https://api.weatherapi.com/v1/current.json?key=24ec84d5842843e6918134831202107&q="+this.state.location;
+      fetch(proxyUrl+targetdUrl)
       .then(response=>response.json())
       .then(data=>{
         this.setState({
